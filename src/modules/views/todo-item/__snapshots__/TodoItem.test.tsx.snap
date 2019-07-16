@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TodoList Component should render with default props 1`] = `
+exports[`TodoItem Component should render with default props 1`] = `
 <div
   className="container"
 >
@@ -26,12 +26,7 @@ exports[`TodoList Component should render with default props 1`] = `
           1
         </td>
         <td>
-          <a
-            href="/todo-item/1"
-            onClick={[Function]}
-          >
-            some todo
-          </a>
+          some todo
         </td>
         <td>
           some desc

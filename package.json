@@ -17,6 +17,7 @@
     "build:stage": "dotenv -e ./src/config/.env.stage react-scripts build",
     "build:production": "dotenv -e ./src/config/.env.production react-scripts build",
     "test": "dotenv -e ./src/config/.env.test cross-env react-scripts test  -- --watchAll=false --env=jsdom --coverage --forceExit --maxWorkers=1 --detectOpenHandles",
+    "test:watch": "dotenv -e ./src/config/.env.test cross-env react-scripts test  -- --watchAll=true --env=jsdom --coverage --forceExit --maxWorkers=1 --detectOpenHandles",
     "lint": "tslint -c ./tslint.json 'src/**/*.{ts,tsx}'",
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer build/static/js/main.* --html > tree.html && google-chrome tree.html",

@@ -46,4 +46,10 @@ describe('ApiService', () => {
     const res = apiService.getTodoList();
     expect(res instanceof Observable).toBe(true);
   });
+
+  it('should getTodoItem', () => {
+    const todoId = 1;
+    const res = apiService.getTodoItem(todoId);
+    expect(res instanceof Observable).toBe(true);
+  });
 });

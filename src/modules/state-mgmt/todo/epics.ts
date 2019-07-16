@@ -16,4 +16,14 @@ export const todoGetEpicFetchStart: Epic<IAction, IAction, IRootState, IEpicDepe
     ))
   );
 
-export const epics = [todoGetEpicFetchStart];
+export const todoGetItemEpicFetchStart: Epic<IAction, IAction, IRootState, IEpicDependencies> = (action$, state$, deps) =>
+  action$.pipe(
+    ofType(ActionType.FETCH_ITEM_START),
+    mergeMap(action => of(action).pipe(
+      mergeMap(() => deps.apiService.getTodoItem(action.payload.todoId)),
+      map(res => actions.fetchItemSuccess(res)),
+      catchError(error => of(coreState.actions.epicError(error)))
+    ))
+  );
+
+export const epics = [todoGetEpicFetchStart, todoGetItemEpicFetchStart];

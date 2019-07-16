@@ -1,4 +1,5 @@
 import React, { memo, useMemo, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import { GeneralModel, TodoModel } from '../../models';
 
@@ -26,7 +27,7 @@ const TodoList = ({ todoMap, fetchTodoList }: ITodoListProps) => {
             todoList.map(todo => (
               <tr key={todo.id}>
                 <td>{todo.id}</td>
-                <td>{todo.name}</td>
+                <td><Link to={`/todo-item/${todo.id}`}>{todo.name}</Link></td>
                 <td>{todo.description}</td>
               </tr>
             ))

@@ -23,6 +23,10 @@ export class ApiService {
     ]);
   }
 
+  public getTodoItem(id): Observable<TodoModel.ITodo> {
+    return this.getTodoList().pipe(map(todoList => todoList.find(todo => todo.id === id)));
+  }
+
   public request<T = any>(path: string, options: { method: string; body?: any; headers?: { [key: string]: any } } = { method: 'GET' }): Observable<T> {
     options.headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
     if (options.body) options.body = this.parseBody(options.body);

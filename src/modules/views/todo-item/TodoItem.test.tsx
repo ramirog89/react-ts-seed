@@ -1,26 +1,22 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer';
-import { MemoryRouter } from 'react-router';
 
 import { getTodo_1 } from '../../../test/entities';
-import TodoList from './TodoList';
+import TodoItem from './TodoItem';
 
-describe('TodoList Component', () => {
+describe('TodoItem Component', () => {
   let Component;
   let props;
 
   beforeEach(() => {
     global.console.error = () => {/** */};
     props = {
-      todoMap: { [getTodo_1().id]: getTodo_1() },
-      fetchTodoList: jest.fn()
+      todoId: getTodo_1().id,
+      todoItem: getTodo_1(),
+      fetchTodoItem: jest.fn()
     };
-    Component = mount(
-      <MemoryRouter>
-        <TodoList {...props} />
-      </MemoryRouter>
-    );
+    Component = mount(<TodoItem {...props} />);
   });
 
   it('should render with default props', () => {
